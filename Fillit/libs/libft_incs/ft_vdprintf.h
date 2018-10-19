@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_vdprintf.h                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: zwang <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/15 09:43:53 by zwang             #+#    #+#             */
-/*   Updated: 2018/09/05 10:27:39 by zwang            ###   ########.fr       */
+/*   Updated: 2018/09/18 21:51:10 by zwang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
+#ifndef FT_VDPRINTF_H
+# define FT_VDPRINTF_H
 
 # include <stdarg.h>
 # include "libft.h"
@@ -36,7 +36,7 @@ typedef struct			s_strblock
 typedef struct			s_package
 {
 	char				collection[127];
-	va_list				*args;
+	va_list				args;
 	char				fmt_spfr;
 	int					width;
 	int					precision;
@@ -48,15 +48,15 @@ typedef struct			s_package
 typedef	struct			s_handler
 {
 	char				*fmt_spfr;
-	void				(*handler)(t_package *);
+	void				(*handler)(t_package *, va_list);
 }						t_handler;
 
 /*
 ** LEAF
 */
 
-intmax_t				modify_signed_integer(t_package *package);
-uintmax_t				modify_unsigned_integer(t_package *package);
+intmax_t				modify_signed_integer(t_package *package, va_list args);
+uintmax_t				modify_unsigned_integer(t_package *package, va_list args);
 
 void					hash_handler(t_package *package, t_strblock *block,
 										uintmax_t num);
@@ -71,10 +71,10 @@ void					content_handler(t_package *package, t_strblock *block);
 ** BRANCH
 */
 
-void					string(t_package *package);
-void					signed_integer(t_package *package);
-void					unsigned_integer(t_package *package);
-void					character(t_package *package);
+void					string(t_package *package, va_list args);
+void					signed_integer(t_package *package, va_list args);
+void					unsigned_integer(t_package *package, va_list args);
+void					character(t_package *package, va_list args);
 
 /*
 ** CORE
@@ -93,14 +93,17 @@ void					initialize_zero(char collection[128]);
 int						is_conversion(char c);
 int						is_flag(char c);
 int						is_modifier(char c);
-void					asterisk_handler(t_package *package, char *ptr, int *i);
-char					*flag_collector(t_package *package, char *fmt_ptr);
-char					*fmt_handler(t_package *package, char *fmt_ptr);
+void					asterisk_handler(t_package *package, char *ptr, int *i,
+											va_list args);
+char					*flag_collector(t_package *package, char *fmt_ptr,
+											va_list args);
+char					*fmt_handler(t_package *package, char *fmt_ptr,
+										va_list args);
 
 /*
 ** ROOT
 */
 
-int						ft_printf(const char *format, ...);
+int						ft_vdprintf(int fd, const char *format, va_list args);
 
 #endif

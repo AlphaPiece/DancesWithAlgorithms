@@ -6,7 +6,7 @@
 #    By: zwang <marvin@42.fr>                       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/08/08 15:54:57 by zwang             #+#    #+#              #
-#    Updated: 2018/09/11 10:46:55 by zwang            ###   ########.fr        #
+#    Updated: 2018/10/19 15:31:04 by zwang            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,32 +17,25 @@ CC = gcc
 SRCS_DIR = srcs/
 OBJS_DIR = objs/
 
-FILLIT_INCS = incs/
-LIBFT_INCS = srcs/libft/incs/
-
-INCS = -I $(FILLIT_INCS) -I $(LIBFT_INCS)
+INCS = -I incs/ -I libs/libft_incs/
 SRCS = $(wildcard $(SRCS_DIR)*.c)
+LIBS = libs/libft.a
 OBJS = $(patsubst srcs/%.c, %.o, $(SRCS))
 
 
 all: $(NAME)
 
 $(NAME):
-	@make -C ./srcs/libft
-	@mv ./srcs/libft/libft.a .
 	@$(CC) -g $(CFLAGS) -c $(SRCS) $(INCS)
-	@$(CC) -g -o $(NAME) $(OBJS) ./libft.a
+	@$(CC) -g -o $(NAME) $(OBJS) $(LIBS)
 	@mkdir -p $(OBJS_DIR)
 	@mv $(OBJS) $(OBJS_DIR)
 
 clean:
-	@make -C ./srcs/libft clean
 	@rm -rf $(OBJS_DIR)
 
 fclean: clean
-	@make -C ./srcs/libft fclean
 	@rm -rf $(NAME)
-	@rm -rf ./libft.a
 
 re: fclean all
 
