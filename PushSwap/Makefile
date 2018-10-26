@@ -6,7 +6,7 @@
 #    By: zwang <marvin@42.fr>                       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/09/01 18:49:31 by zwang             #+#    #+#              #
-#    Updated: 2018/09/20 09:45:18 by zwang            ###   ########.fr        #
+#    Updated: 2018/10/25 21:49:13 by zwang            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,11 +19,7 @@ GREEN = \033[1;32m
 RED = \033[1;31m
 
 
-all: $(LIBFT) $(PUSH_SWAP) $(CHECKER)
-
-$(LIBFT):
-	@make -C srcs/libft/
-	@mv srcs/libft/libft.a .
+all: $(PUSH_SWAP) $(CHECKER)
 
 $(PUSH_SWAP):
 	@make -C srcs/push_swap/ p
@@ -34,13 +30,10 @@ $(CHECKER):
 	@mv srcs/checker/checker .
 
 clean:
-	@make -C srcs/libft/ clean
 	@make -C srcs/push_swap/ clean
 	@make -C srcs/checker/ clean
 
 fclean: clean
-	@rm -rf $(LIBFT)
-	@printf "\033[1;31m[x] $(RESET)\x1B[31m$(LIBFT) deleted\n"
 	@rm -rf $(PUSH_SWAP)
 	@printf "\033[1;31m[x] $(RESET)\x1B[31m$(PUSH_SWAP) deleted\n"
 	@rm -rf $(CHECKER)

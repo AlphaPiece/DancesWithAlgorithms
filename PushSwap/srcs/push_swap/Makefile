@@ -6,7 +6,7 @@
 #    By: zwang <marvin@42.fr>                       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/09/01 16:36:58 by zwang             #+#    #+#              #
-#    Updated: 2018/09/20 09:44:02 by zwang            ###   ########.fr        #
+#    Updated: 2018/10/25 21:48:04 by zwang            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,7 +27,7 @@ STAGE_DIR = ../film_crew/stage/
 OBJS_DIR = ./objs/
 
 PUSH_SWAP_INCS = ../../incs/
-LIBFT_INCS = ../libft/incs/
+LIBFT_INCS = ../../libs/libft_incs/
 
 INCS = -I $(PUSH_SWAP_INCS) -I $(LIBFT_INCS)
 SRCS = $(addprefix $(ACTOR_DIR), $(ACTOR)) \
@@ -35,6 +35,7 @@ SRCS = $(addprefix $(ACTOR_DIR), $(ACTOR)) \
 		$(addprefix $(ASSISTANT_DIR), $(ASSISTANT)) \
 		$(addprefix $(DIRECTOR_DIR), $(DIRECTOR)) \
 		$(MAIN)
+LIBS = ../../libs/libft.a
 OBJS = $(addprefix $(OBJS_DIR), *.o)
 
 RESET = \033[0m
@@ -44,13 +45,11 @@ RED = \033[1;31m
 all: $(NAME)
 
 $(NAME):
-	@make -C ../libft/
-	@mv ../libft/libft.a .
 	@printf "\n\x1B[38;5;208mCompiling $(NAME)...\n\x1b[37m"
 	@$(CC) -g $(CFLAGS) -c $(SRCS) $(INCS)
 	@mkdir -p $(OBJS_DIR)
 	@mv *.o $(OBJS_DIR)
-	@$(CC) -g -o $(NAME) $(OBJS) libft.a
+	@$(CC) -g -o $(NAME) $(OBJS) $(LIBS)
 	@printf "\n$(GREEN)[✓] $(RESET)\x1B[32m$(NAME) ready!\n\x1b[37m"
 
 p:
@@ -58,7 +57,7 @@ p:
 	@$(CC) -g $(CFLAGS) -c $(SRCS) $(INCS)
 	@mkdir -p $(OBJS_DIR)
 	@mv *.o $(OBJS_DIR)
-	@$(CC) -g -o $(NAME) $(OBJS) ../../libft.a
+	@$(CC) -g -o $(NAME) $(OBJS) $(LIBS)
 	@printf "\n$(GREEN)[✓] $(RESET)\x1B[32m$(NAME) ready!\n\x1b[37m"
 
 clean:

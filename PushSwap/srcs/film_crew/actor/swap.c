@@ -6,7 +6,7 @@
 /*   By: zwang <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/09 16:12:28 by zwang             #+#    #+#             */
-/*   Updated: 2018/09/14 10:55:46 by zwang            ###   ########.fr       */
+/*   Updated: 2018/10/25 21:43:28 by zwang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	swap(t_box_stacks *box_stacks, char stack_code)
 	while (box && box->is_empty)
 		box = box->next;
 	if (box && box->next)
-		ft_swap(&(box->num), &(box->next->num));
+		ft_swap(4, &(box->num), &(box->next->num));
 }
 
 void	swap_both(t_box_stacks *box_stacks)

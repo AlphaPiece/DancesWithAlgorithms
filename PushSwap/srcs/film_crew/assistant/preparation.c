@@ -6,7 +6,7 @@
 /*   By: zwang <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/01 10:12:34 by zwang             #+#    #+#             */
-/*   Updated: 2018/09/20 09:19:21 by zwang            ###   ########.fr       */
+/*   Updated: 2018/10/25 21:44:35 by zwang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,7 +105,7 @@ int				prepare_behind_curtain(t_room *room)
 		num_list = room->argv + room->options->arg_index;
 		if (len == 1)
 		{
-			num_list = ft_strsplit(num_list[0], ' ');
+			num_list = ft_strsplit(num_list[0], " ");
 			len = ft_strarrlen((const char **)num_list);
 		}
 		flag = check_input(room, len, num_list);
