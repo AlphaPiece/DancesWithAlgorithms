@@ -6,7 +6,7 @@
 /*   By: zwang <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/25 21:16:24 by zwang             #+#    #+#             */
-/*   Updated: 2018/08/13 12:38:17 by zwang            ###   ########.fr       */
+/*   Updated: 2018/10/26 13:30:41 by zwang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -142,7 +142,7 @@ t_tetro		*get_tetro_struct(char *tetro_string)
 		tetro_struct->points[i].x = 0;
 		tetro_struct->points[i].y = 0;
 	}
-	if (!(tetro_split = ft_strsplit(tetro_string, '\n')))
+	if (!(tetro_split = ft_strsplit(tetro_string, "\n")))
 		return (NULL);
 	create_points(tetro_struct, tetro_split);
 	i = -1;

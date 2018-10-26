@@ -6,7 +6,7 @@
 /*   By: zwang <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/11 11:20:28 by zwang             #+#    #+#             */
-/*   Updated: 2018/10/19 13:21:03 by zwang            ###   ########.fr       */
+/*   Updated: 2018/10/26 13:21:19 by zwang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,8 @@ enum				{false, true};
 */
 
 # define ARRLEN(a)	(sizeof(a) / sizeof(a[0]))
-# define BITNUM		8
+# define BYTE		8
+# define WORD		32
 # define BIT8		(sizeof(uint8_t))
 # define BIT16		(sizeof(uint16_t))
 # define BIT32		(sizeof(uint32_t))
@@ -161,8 +162,9 @@ char				*ft_strcat(char *s1, const char *s2);
 char				*ft_strchr(const char *s, int c);
 void				ft_strclr(char *s);
 int					ft_strcmp(const char *s1, const char *s2);
-size_t				ft_strclen(const char *s, char c);
-size_t				ft_strccount(const char *s, char c);
+size_t				ft_strclen(const char *s, char *delim);
+int					ft_strsepnum(const char *s, char *delim);
+int					ft_count_subs(const char *str, const char *s);
 char				*ft_strcpy(char *dst, const char *src);
 void				ft_strdel(char **as);
 char				*ft_strdup(const char *s);
@@ -182,7 +184,7 @@ char				*ft_strnew(size_t size);
 char				*ft_strnstr(const char *haystack, const char *needle,
 								size_t len);
 char				*ft_strrchr(const char *s, int c);
-char				**ft_strsplit(const char *s, char c);
+char				**ft_strsplit(const char *s, char *delim);
 char				*ft_strstr(const char *haystack, const char *needle);
 char				*ft_strsub(const char *s, unsigned int start, size_t len);
 char				*ft_strtrim(const char *s);
@@ -192,7 +194,6 @@ size_t				ft_strarrlen(const char **arr);
 void				ft_strarrdel(char **arr);
 t_bool				ft_strstart(const char *str, const char *substr);
 t_bool				ft_strend(const char *str, const char *substr);
-size_t				ft_strscount(const char *str, const char *s);
 void				ft_strsqueeze(char str[], int c);
 void				ft_strarrsort(char *arr[], int len,
 									int (*cmp)(const char *, const char *));
