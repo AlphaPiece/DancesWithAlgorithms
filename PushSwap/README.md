@@ -36,4 +36,4 @@ the other one is 'checker', which could check if the solution given by 'push_swa
 - 500 elements: 6000 steps
 
 Example usage in shell:
-    ARG=`ruby -e "puts (1..50).to_a.shuffle.join(' ')"`; ./push_swap $ARG | ./checker -dno $ARG
+    ARG=$(ruby -e "puts (1..50).to_a.shuffle.join(' ')"); ./push_swap $ARG | ./checker -dno $ARG
