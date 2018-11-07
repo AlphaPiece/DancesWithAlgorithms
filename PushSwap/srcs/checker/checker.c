@@ -6,7 +6,7 @@
 /*   By: zwang <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/08 15:37:16 by zwang             #+#    #+#             */
-/*   Updated: 2018/09/20 09:55:53 by zwang            ###   ########.fr       */
+/*   Updated: 2018/11/07 09:53:52 by zwang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,8 +36,9 @@ int			main(int argc, char **argv)
 {
 	t_room	*room;
 	int		flag;
+	char	*tmp;
 
-	if (argc == 2 && (!argv[1][0] || !ft_strtrim(argv[1])[0]))
+	if (argc == 2 && (!argv[1][0] || !((tmp = ft_strtrim(argv[1]))[0])))
 		return (0);
 	if (argc >= 2)
 	{

@@ -6,7 +6,7 @@
 /*   By: zwang <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/01 14:08:55 by zwang             #+#    #+#             */
-/*   Updated: 2018/10/04 09:44:36 by zwang            ###   ########.fr       */
+/*   Updated: 2018/11/07 10:21:29 by zwang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,10 +39,10 @@ void				print_status(t_box_stacks *box_stacks)
 		max_length = get_max_num_length_in_a(box_stacks);
 	while (a && b)
 	{
-		ft_printf("%*s", max_length,
-					(a->is_empty) ? " " : ft_itoa(a->num));
-		ft_printf("%*s\n", max_length + 3,
-					(b->is_empty) ? " " : ft_itoa(b->num));
+		(a->is_empty) ? ft_printf("%*c", max_length, ' ') :
+						ft_printf("%*d", max_length, a->num);
+		(b->is_empty) ? ft_printf("%*c\n", max_length + 3, ' ') :
+						ft_printf("%*d\n", max_length + 3, b->num);
 		a = a->next;
 		b = b->next;
 	}
@@ -50,7 +50,8 @@ void				print_status(t_box_stacks *box_stacks)
 	ft_putnchar('_', max_length);
 	ft_putstr("   ");
 	ft_putnchar('_', max_length);
-	ft_printf(MAGENTA "\n%*c %*c\n" RESET, max_length, 'a', max_length + 2, 'b');
+	ft_printf(MAGENTA "\n%*c %*c\n" RESET, max_length, 'a',
+				max_length + 2, 'b');
 }
 
 static t_command	*print_same_cmd(t_box_stacks *box_stacks, t_command *cmd)
