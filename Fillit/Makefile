@@ -6,7 +6,7 @@
 #    By: zwang <marvin@42.fr>                       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/08/08 15:54:57 by zwang             #+#    #+#              #
-#    Updated: 2018/10/19 15:31:04 by zwang            ###   ########.fr        #
+#    Updated: 2019/02/09 12:49:59 by Zexi Wang        ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,9 +17,9 @@ CC = gcc
 SRCS_DIR = srcs/
 OBJS_DIR = objs/
 
-INCS = -I incs/ -I libs/libft_incs/
+INCS = -I incs/ -I libs/libft/incs/
 SRCS = $(wildcard $(SRCS_DIR)*.c)
-LIBS = libs/libft.a
+LIBS = libs/libft/libft.a
 OBJS = $(patsubst srcs/%.c, %.o, $(SRCS))
 
 
