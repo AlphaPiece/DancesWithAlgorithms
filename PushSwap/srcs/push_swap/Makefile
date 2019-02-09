@@ -6,7 +6,7 @@
 #    By: zwang <marvin@42.fr>                       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/09/01 16:36:58 by zwang             #+#    #+#              #
-#    Updated: 2018/10/25 21:48:04 by zwang            ###   ########.fr        #
+#    Updated: 2019/02/09 12:52:12 by Zexi Wang        ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,7 +27,7 @@ STAGE_DIR = ../film_crew/stage/
 OBJS_DIR = ./objs/
 
 PUSH_SWAP_INCS = ../../incs/
-LIBFT_INCS = ../../libs/libft_incs/
+LIBFT_INCS = ../../libs/libft/incs/
 
 INCS = -I $(PUSH_SWAP_INCS) -I $(LIBFT_INCS)
 SRCS = $(addprefix $(ACTOR_DIR), $(ACTOR)) \
@@ -35,7 +35,7 @@ SRCS = $(addprefix $(ACTOR_DIR), $(ACTOR)) \
 		$(addprefix $(ASSISTANT_DIR), $(ASSISTANT)) \
 		$(addprefix $(DIRECTOR_DIR), $(DIRECTOR)) \
 		$(MAIN)
-LIBS = ../../libs/libft.a
+LIBS = ../../libs/libft/libft.a
 OBJS = $(addprefix $(OBJS_DIR), *.o)
 
 RESET = \033[0m

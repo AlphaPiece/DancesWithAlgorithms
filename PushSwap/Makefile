@@ -6,13 +6,12 @@
 #    By: zwang <marvin@42.fr>                       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/09/01 18:49:31 by zwang             #+#    #+#              #
-#    Updated: 2018/10/25 21:49:13 by zwang            ###   ########.fr        #
+#    Updated: 2019/02/09 12:51:43 by Zexi Wang        ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 PUSH_SWAP = push_swap
 CHECKER = checker
-LIBFT = libft.a
 
 RESET = \033[0m
 GREEN = \033[1;32m
