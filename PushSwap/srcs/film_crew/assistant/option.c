@@ -6,7 +6,7 @@
 /*   By: zwang <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/11 21:26:37 by zwang             #+#    #+#             */
-/*   Updated: 2018/11/07 10:13:40 by zwang            ###   ########.fr       */
+/*   Updated: 2019/02/18 11:50:26 by Zexi Wang        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,9 @@ void	collect_options(int argc, char **argv, t_options *options)
 	int		i;
 	int		j;
 
-	i = 0;
+	i = 1;
 	options->flag = 2;
-	while (i < argc && argv[++i][0] == '-')
+	while (i < argc && argv[i][0] == '-')
 	{
 		j = 0;
 		while (argv[i][++j])
@@ -36,6 +36,7 @@ void	collect_options(int argc, char **argv, t_options *options)
 			options->d_option = true;
 		if (ft_strchr(argv[i], 'o'))
 			options->o_option = true;
+		i++;
 	}
 	options->arg_index = i;
 	options->flag = 0;
