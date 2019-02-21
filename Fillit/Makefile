@@ -6,7 +6,7 @@
 #    By: zwang <marvin@42.fr>                       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/08/08 15:54:57 by zwang             #+#    #+#              #
-#    Updated: 2019/02/09 12:49:59 by Zexi Wang        ###   ########.fr        #
+#    Updated: 2019/02/20 22:57:57 by Zexi Wang        ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -40,7 +40,7 @@ fclean: clean
 re: fclean all
 
 do:
-	./fillit test/valid.fillit
-	./fillit test/invalid.fillit
+	./fillit tests/valid.fillit
+	./fillit tests/invalid.fillit
 
 .PHONY: all clean fclean re
