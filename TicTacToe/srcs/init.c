@@ -6,7 +6,7 @@
 /*   By: Zexi Wang <twopieces0921@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/07 22:07:09 by Zexi Wang         #+#    #+#             */
-/*   Updated: 2019/04/08 20:21:57 by Zexi Wang        ###   ########.fr       */
+/*   Updated: 2019/04/08 22:53:46 by Zexi Wang        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,11 +48,11 @@ char	setup_mode(char player)
 {
 	char	chr;
 
-	ft_printf("Choose human/computer player for '%c' (h/c):\n", player);
+	ft_printf("Human/Computer mode for '%c' (h/c): ", player);
 	chr = ft_getonechar();
 	while (chr != 'h' && chr != 'c')
 	{
-		ft_printf("Choose human/computer player for '%c' (h/c):\n", player);
+		ft_printf("Human/Computer mode for '%c' (h/c): ", player);
 		chr = ft_getonechar();
 	}
 	return (chr);
@@ -69,6 +69,7 @@ int		main(void)
 			board[i][j] = ' ';
 	o_mode = setup_mode('O');
 	x_mode = setup_mode('X');
+	ft_putchar('\n');
 	game_loop(board, o_mode, x_mode);
 	return (0);
 }
