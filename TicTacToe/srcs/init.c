@@ -6,7 +6,7 @@
 /*   By: Zexi Wang <twopieces0921@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/07 22:07:09 by Zexi Wang         #+#    #+#             */
-/*   Updated: 2019/04/08 22:53:46 by Zexi Wang        ###   ########.fr       */
+/*   Updated: 2019/04/08 22:59:02 by Zexi Wang        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,13 +48,11 @@ char	setup_mode(char player)
 {
 	char	chr;
 
-	ft_printf("Human/Computer mode for '%c' (h/c): ", player);
-	chr = ft_getonechar();
-	while (chr != 'h' && chr != 'c')
+	do
 	{
 		ft_printf("Human/Computer mode for '%c' (h/c): ", player);
 		chr = ft_getonechar();
-	}
+	} while (chr != 'h' && chr != 'c');
 	return (chr);
 }
 
