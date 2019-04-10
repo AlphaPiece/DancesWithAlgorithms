@@ -2,6 +2,15 @@
 
 ## *What is a coder's life algorithm?*
 
+```
+while (alive)
+{
+    eat();
+    code();
+    sleep();
+}
+```
+
 Here are some games made for practicing algorithms:
 
 - ### Fillit (Backtracking)
