@@ -6,7 +6,7 @@
 /*   By: Zexi Wang <twopieces0921@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/07 22:07:09 by Zexi Wang         #+#    #+#             */
-/*   Updated: 2019/04/08 22:59:02 by Zexi Wang        ###   ########.fr       */
+/*   Updated: 2019/04/09 11:53:48 by Zexi Wang        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ void	game_loop(char board[EDGE][EDGE], char o_mode, char x_mode)
 	ft_printf("It's a draw.\n");	
 }
 
-char	setup_mode(char player)
+char	set_mode(char player)
 {
 	char	chr;
 
@@ -65,8 +65,8 @@ int		main(void)
 	for (i = 0; i < EDGE; i++)
 		for (j = 0; j < EDGE; j++)
 			board[i][j] = ' ';
-	o_mode = setup_mode('O');
-	x_mode = setup_mode('X');
+	o_mode = set_mode('O');
+	x_mode = set_mode('X');
 	ft_putchar('\n');
 	game_loop(board, o_mode, x_mode);
 	return (0);
