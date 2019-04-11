@@ -1,4 +1,4 @@
-# Push_Swap
+# PushSwap
 An interesting game for learning sorting algorithms.
 
 This projects contains two programs. One is 'push_swap', which could sort a stack of numbers with a set of operation;
