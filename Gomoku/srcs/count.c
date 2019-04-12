@@ -6,13 +6,13 @@
 /*   By: Zexi Wang <twopieces0921@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/10 18:43:18 by Zexi Wang         #+#    #+#             */
-/*   Updated: 2019/04/10 18:53:27 by Zexi Wang        ###   ########.fr       */
+/*   Updated: 2019/04/11 14:22:24 by Zexi Wang        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "gomoku.h"
 
-int	north_pieces(char board[EDGE][EDGE], int r, int c, char player)
+int	n_pieces(char board[EDGE][EDGE], int r, int c, char player)
 {
 	int	count;
 
@@ -22,7 +22,7 @@ int	north_pieces(char board[EDGE][EDGE], int r, int c, char player)
 	return (count);
 }
 
-int     south_pieces(char board[EDGE][EDGE], int r, int c, char player)
+int	s_pieces(char board[EDGE][EDGE], int r, int c, char player)
 {
 	int	count;
 
@@ -32,7 +32,7 @@ int     south_pieces(char board[EDGE][EDGE], int r, int c, char player)
 	return (count);
 }
 
-int     west_pieces(char board[EDGE][EDGE], int r, int c, char player)
+int	w_pieces(char board[EDGE][EDGE], int r, int c, char player)
 {
 	int	count;
 
@@ -42,7 +42,7 @@ int     west_pieces(char board[EDGE][EDGE], int r, int c, char player)
 	return (0);
 }
 
-int     east_pieces(char board[EDGE][EDGE], int r, int c, char player)
+int	e_pieces(char board[EDGE][EDGE], int r, int c, char player)
 {
 	int	count;
 
@@ -52,7 +52,7 @@ int     east_pieces(char board[EDGE][EDGE], int r, int c, char player)
 	return (count);
 }
 
-int     northwest_pieces(char board[EDGE][EDGE], int r, int c, char player)
+int	nw_pieces(char board[EDGE][EDGE], int r, int c, char player)
 {
 	int	count;
 
@@ -63,7 +63,7 @@ int     northwest_pieces(char board[EDGE][EDGE], int r, int c, char player)
 	return (count);
 }
 
-int     northeast_pieces(char board[EDGE][EDGE], int r, int c, char player)
+int	ne_pieces(char board[EDGE][EDGE], int r, int c, char player)
 {
 	int	count;
 
@@ -74,7 +74,7 @@ int     northeast_pieces(char board[EDGE][EDGE], int r, int c, char player)
 	return (count);
 }
 
-int     southwest_pieces(char board[EDGE][EDGE], int r, int c, char player)
+int sw_pieces(char board[EDGE][EDGE], int r, int c, char player)
 {
 	int	count;
 
@@ -85,7 +85,7 @@ int     southwest_pieces(char board[EDGE][EDGE], int r, int c, char player)
 	return (count);
 }
 
-int     southeast_pieces(char board[EDGE][EDGE], int r, int c, char player)
+int	se_pieces(char board[EDGE][EDGE], int r, int c, char player)
 {
 	int	count;
 
