@@ -25,3 +25,6 @@ while (alive)
 
 - ### Gomoku (Alpha-beta pruning)
 *An abstract strategy board game (aka "Five in a Row"). Two players alternate turns placing a stone of their color on an empty intersection. The winner is the first player to form an unbroken chain of five stones horizontally, vertically, or diagonally.*
+
+- ### Minesweeper (Flood fill)
+*A single-player puzzle game. The objective of the game is to clear a rectangular board containing hidden "mines" or bombs without detonating any of them, with help from clues about the number of neighboring mines in each field.*
