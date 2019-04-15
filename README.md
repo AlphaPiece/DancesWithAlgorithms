@@ -11,7 +11,8 @@ while (alive)
 }
 ```
 
-Here are some games made for practicing algorithms:
+- ### LearnToDance
+*Some algorithm implementation practices.*
 
 - ### Fillit (Backtracking)
 *Fill a smallest square with given tetrominoes.*
