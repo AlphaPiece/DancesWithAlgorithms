@@ -1,4 +1,4 @@
-# DancesWithAlgorithms
+# Dances With Algorithms
 
 ## *What is a coder's life algorithm?*
 
