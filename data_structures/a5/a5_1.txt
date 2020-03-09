@@ -1,0 +1,57 @@
+Disjoint-set Forest (Without Weighted-Union Rule)
+
+Make-Set(x):
+	x.p = x
+
+Union(x, y):
+	y.p = x
+
+Find-Set(x):
+	if x != x.p
+		x.p = Find-Set(x.p)
+	return x.p
+
+Let sigma be any sequence of k Unions followed by k' Finds: so all Unions occur before the Finds.
+
+WTS: sigma in O(k + k').
+
+
+Pf:
+
+We already know any sequence of k Unions costs O(k), since each Union costs O(1). And in worst case, those k Unions construct a linked-list: the set of a single node always become the root (representitive) of the new set after each Union.
+
+So we want to show that k Finds costs O(k').
+
+
+a
+ \
+  b
+   \
+    c
+     \
+     ...
+
+   |
+   V
+
+<a, b, c, ...>
+ 0  1  2  ... 
+
+
+Let x be an arbitrary element in the set. Since the set is a linked-list in the worst case, we can give each element inside an index: the root is at index 0, the child of the root is at index 1, the grandchild of the root is at index 2, and so on.
+
+Assume x's index is i. Now calling Find(x) costs O(i) because we need to visit every node before x and assign their parent to be the root (including x).
+
+Now let y be another arbitrary element and y != x. Assume y's index is j. Call Find(y). Then there are two cases: (1) j < i and (2) j > i. If j < i, then Find(y) costs O(1) since its parent is root already; if j > i, then Find(y) costs O(j - i) since x's parent is root, we stop calling Find on parent at x.
+
+Assume after calling k' times Find, case (1) happens m times and case (2) happens n times. Note that m + n + 1 = k', since we do not need to consider these two cases in the fisrt call.
+
+In the worst case, the first call costs O(k), if we call on the last element in the 'linked-list'.
+
+Case (1) happens m times imply those calls costs m * O(1) = O(m). In worst case, m = O(k').
+
+Let the n times case (2) calling element index sequence be <a_0, a_1, ..., a_(n-1)>. Since calling these elements, case (2) happens, we know for all i, 1 <= i <= n, a_i > a_(i-1). And by the analysis above, the totol runtime of these calls is O(a_1 - a_0) + O(a_2 - a_1) + ... + O(a_(n-1) - a_(n-2)) = O(a_(n-1) - a_0). In worst case, a_(n-1) can be k and a_0 can be 0 (k Unions imply (k+1) elements). Thus, the total runtime is O(k).
+
+Therefore, the runtime of calling k' times Find is O(k' + k + k). Combine k Unions and k' Finds together, we have sigma in O(k + k' + k + k) = O(3 * k + k') = O(k + k').
+
+

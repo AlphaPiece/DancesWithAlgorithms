@@ -1,0 +1,65 @@
+different_at_one_position(k, s1, s2):
+	pos = 0
+	for i in 0..k-1:
+		if s1[i] != s2[i]:
+			pos += 1
+		if pos > 1:
+			return False
+	return True
+
+find_shortest_path(D, k, n, start, target):
+	// Part 1
+	V = []
+	for key in D:
+		V.add(key)
+	L = undirected_adjacency_list_create(V)
+
+	// Part 2
+	for i in 0..length(V):
+		for j in i..length(V):
+			if different_at_one_position(k, V[i], V[j]):
+				insert_edge(L, V[i], V[j])
+
+	// Part 3
+	BFS(L, start)
+
+	// Part 4
+	path = []
+	while target.pi != nil:
+		path.add(target)
+		target = target.pi
+	if target == start:
+		path.add(start)
+		return reverse(path)
+	else:
+		return "No sequence exists!"
+
+
+
+If two keys are similar, then they only differ at one position. E.g. "man" and "men" are similar but "hey" and "hat" are not.
+
+
+
+=== Space Complexity ===
+
+In the code above we used two lists V and path and an adjacency list L. V and path each takes O(n).
+
+Since each vertex of L takes O(1) and their edge linked-list each takes O(25 * k) (since for every position of the key, there are at most 25 other similar keys in D), L takes n * O(1 + 25 * k) = n * O(k) = O(k * n).
+
+Therefore, the space complexity is O(n + n + k * n) = O(k * n) in total.
+
+
+
+=== Runtime Complexity ===
+
+Part 1 costs O(n) since looping through D and create an adjacency list with a list of vertices V of size of n both cost O(n).
+
+Part 2 costs O(k * n^2) since the cost of one different_at_one_position() and one insert_edge() is O(k + 1) = O(k) and there are at most O(n^2) such calls.
+
+Part 3 costs O(k * n). We know BFS costs O(|V| + |E|). Since for each i, L[i] can have at most 25 * k edges (for each position, we can have at 25 other similar keys; there are k positions), |E| = O(n * 25 * k) = O(k * n). Therefore, BFS costs O(n + k * n) = O(k * n).
+
+Part 4 costs O(n) since in worst case we need to traverse every key in D to reach the target and the code other than the loop just costs O(1).
+
+Therefore, the runtime is O(n + k * n^2 + k * n + n) = O(k * n^2) in total.
+
+

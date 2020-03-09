@@ -1,0 +1,81 @@
+G = (V, E) is an undirected graph with V = {1, ..., n}, |E| = m, and G is stored as adjacency list L, where L[i] is a linked list of vertex i's neighbours.
+
+range(m): 0 <= m <= n * (n - 1) / 2 (Note that n(n - 1) is even)
+
+If m >= n(n - 1) / 4, then G is dense.
+
+Let ~G = (V, ~E), where ~E = {(i, j) | i, j in V and (i, j) not in E
+}. Let ~L be the adjacency list for ~G. Let ~m = |~E|. Note that m + ~m = n * (n - 1) / 2.
+
+
+a.
+
+The worst case space complexity of the adjacency list of an undirected graph is O(n) + O(2 * m), that is, space for each vertex plus space for each edge (since we for each edge (i, j) we need to add a node to both i and j's edge linked list, the space of edges is 2 times the number of edges). Hence, the space complexity is O(n + m).
+
+However, in worst case, m = n * (n - 1) / 2 = O(n^2). So the space complexity will be O(n + m) = O(n + n^2) = O(n^2).
+
+Give that G is dense (i.e. m >= n * (n - 1) / 4), we know 0 <= ~m <= n * (n - 1) / 2 - n * (n - 1) / 4 = n * (n - 1) / 4, and so the space complexity of edges in worst case is O(n^2). Hence, the space complexity will be O(n + ~m) = O(n + n^2) = O(n^2).
+
+
+-------------------------------
+Degree(G, i): Return the degree of vertex i in G.V
+
+AverageDegree(G): Return the average degree over all vertices in G.V
+
+ContainsEdge(G, i, j): Given i, j in G.V, return True if there is an edge (i, j) in G.E, False otherwise
+
+InsertEdge(G, i, j): Given i, j in G.V and edge (i, j) not in G.E, add edge (i, j) to G.V
+-------------------------------
+
+L:
+-------------------------------
+Degree(G, i):
+Costs O(1) since finding a vertex in an adjacency list is O(1).
+
+AverageDegree(G):
+Costs O(n) since we need to find every vertex in the adjacency list (O(1) * n).
+
+ContainsEdge(G, i, j):
+Costs O(m) since in worst case, all edge pair contains i and the last edge node of the linked-list at L[i] is (i, j). So traversing to that edge node in the linked-list of length m / 2 costs O(m).
+
+InsertEdge(G, i, j):
+Costs O(1) since finding i and j's linked-list costs O(1) and adding a node to the head of each linked-list is also constant.
+-------------------------------
+
+~L:
+-------------------------------
+Degree(~G, i):
+Costs O(1) since finding a vertex in an adjacency list is O(1).
+
+AverageDegree(~G):
+Costs O(n) since we need to find every vertex in the adjacency list (O(1) * n).
+
+ContainsEdge(~G, i, j):
+Costs O(~m) since in worst case, G contains all edges except those edge pairs which contain i and the last edge node of the linked-list at ~L[i] is (i, j). So traversing to that edge node in the linked-list of length ~m / 2 costs O(~m).
+
+InsertEdge(~G, i, j):
+Costs O(~m) since in worst case, G contains all edges except those edge pairs which contain i and the edge (i, j) is at the end of the linked-list at ~L[i]. So traversing to that edge node in the linked-list of length ~m / 2 and remove it costs in total O(~m).
+-------------------------------
+
+
+
+b.
+
+The space complexity is the same as ~L since each AVL tree ~L[i] has the same number of nodes as the linked-list L[i].
+
+~L:
+-------------------------------
+Degree(~G, i):
+Costs O(1) since finding a vertex in an adjacency list is O(1).
+
+AverageDegree(~G):
+Costs O(n) since we need to find every vertex in the adjacency list (O(1) * n).
+
+ContainsEdge(~G, i, j):
+Costs O(log(~m)) since in worst case, G contains all edges except those edge pairs which contain i and the edge (i, j) is a leaf of the AVL tree at ~L[i]. The maximum number of nodes that ~L[i] can have is ~m / 2, so its height is O(log(~m)).
+
+InsertEdge(~G, i, j):
+Costs O(~m) since in worst case, G contains all edges except those edge pairs which contain i and the edge (i, j) is a leaf of the AVL tree at ~L[i]. So traversing to that edge node in the AVL tree of size ~m / 2 and remove it costs in total O(log(~m)) + O(log(~m)) = O(log(~m)).
+
+
+
